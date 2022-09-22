@@ -1,6 +1,3 @@
 def add(a, b):
-    addition = a + b
-    return addition
+    return a + b
 
-
-print(add(a, b))
