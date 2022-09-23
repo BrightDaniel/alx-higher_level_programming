@@ -1,6 +1,3 @@
+#!/usr/bin/python3
 def add(a, b):
-    addition = a + b
-    return addition
-
-
-print(add(a, b))
+    return a + b
