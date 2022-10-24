@@ -1,0 +1,108 @@
+============================
+doctest for 2-matrix_divided.py
+============================
+``matrix_divided()`` returns a new matrix with all elements scalar divided
+
+SUCCESSFUL TEST CONDITIONS
+==========================
+testing function with scalar division with single digit div
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+testing function with scalar division with mulit-digit div
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 33)
+[[0.03, 0.06, 0.09], [0.12, 0.15, 0.18]]
+
+testing function with scalar division with large div
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 333)
+[[0.0, 0.01, 0.01], [0.01, 0.02, 0.02]]
+
+testing function with scalar division with larger div
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3333)
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+testing function with scalar division with negative div
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], -3)
+[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+testing function with scalar division with different sized matrix
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[-1, 2, -3], [-4, 5, -6], [-7, 8, -9]], -1)
+[[1.0, -2.0, 3.0], [4.0, -5.0, 6.0], [7.0, -8.0, 9.0]]
+
+testing function with scalar division with floats
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1.2, 2.2, 3.2], [4.2, 5.2, 6.2]], 1.2)
+[[1.0, 1.83, 2.67], [3.5, 4.33, 5.17]]
+
+
+TEST CONDITIONS WHERE AN ERROR IS RAISED
+========================================
+
+testing how function handles None argument
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided(None, None)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+testing how function handles incorrect matrix argument
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided({9, 8, 7}, 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+testing how function handles list of None
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([None], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+testing how function handles list of incorrect type
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided(["string"], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+testing how function handles incorrect type for element in matrix
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([["string"], ["here"]], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+testing how function handles rows of different lengths
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [4, 8, 7, 9], [2]], 1.5)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+testing how function handles division by 0
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [5, 6, 7]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+testing how function handles division by incorrect type
+::
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> matrix_divided([[1, 2, 3], [5, 6, 7]], "25")
+Traceback (most recent call last):
+TypeError: div must be a number
